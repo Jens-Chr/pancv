@@ -1,0 +1,113 @@
+\newcommand{\pancvname}[2]{
+  $if(europass)$
+  \ecvname{#1 #2}
+  $else$
+  \firstname{#1}
+  \familyname{#2}
+  $endif$
+}
+
+\newcommand{\pancvmobile}[1]{
+  $if(europass)$
+  \ecvmobile{#1}
+  $else$
+  \mobile{#1}
+  $endif$
+}
+
+\newcommand{\pancvemail}[1]{
+  $if(europass)$
+  \ecvemail{#1}
+  $else$
+  \email{#1}
+  $endif$
+}
+
+\newcommand{\pancvaddress}[2]{
+  $if(europass)$
+  \ecvaddress{#1, #2}
+  $else$
+  \address{#1}{#2}
+  $endif$
+}
+
+\newcommand{\pancvsection}[1]{
+  $if(europass)$
+  \ecvsection{#1}
+  $else$
+  \section{#1}
+  $endif$
+}
+
+\newcommand{\pancventry}[6]{
+  $if(europass)$
+  \ecvitem{#1}{\textbf{#6}. #2, #3, #4. #5}
+  $else$
+  \cventry{#1}{#2}{#3}{#4}{#5}{#6}
+  $endif$
+}
+
+\newcommand{\pancvitem}[2]{
+  $if(europass)$
+  \ecvitem{#1}{#2}
+  $else$
+  \cvline{#1}{#2}
+  $endif$
+}
+
+$if(europass)$
+\documentclass{europasscv}
+$else$
+\documentclass{moderncv}
+  $if(theme)$
+  \moderncvtheme[$theme.color$]{$theme.style$}
+  $else$
+  \moderncvtheme[blue]{classic}
+  $endif$
+$endif$
+
+$if(name)$
+\pancvname{$name.first$}{$name.family$}
+$endif$
+
+$if(address)$
+\pancvaddress{$address.first$}{$address.second$}
+$endif$
+
+$if(email)$
+\pancvemail{$email$}
+$endif$
+
+$if(mobile)$
+\pancvmobile{$mobile$}
+$endif$
+
+\begin{document}
+
+$if(europass)$
+\ecvpersonalinfo
+$else$
+\maketitle
+$endif$
+
+$for(cron-sections)$
+  \pancvsection{$if(it.section)$$it.section$$endif$}
+  $for(it.entries)$
+    \pancventry{$if(it.year)$$it.year$$endif$}
+    {$if(it.degre)$$it.degre$$endif$}
+    {$if(it.institution)$$it.institution$$endif$}
+    {$if(it.city)$$it.city$$endif$}
+    {$if(it.grade)$$it.grade$$endif$}
+    {$if(it.description)$$it.description$$endif$}
+  $endfor$
+$endfor$
+
+$for(sections)$
+  \pancvsection{$if(it.section)$$it.section$$endif$}
+  $for(it.items)$
+    \pancvitem{$if(it.left)$$it.left$$endif$}
+    {$if(it.right)$$it.right$$endif$}
+  $endfor$
+$endfor$
+
+\end{document}
