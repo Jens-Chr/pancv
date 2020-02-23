@@ -5,13 +5,13 @@ A pandoc LaTeX template for creating a curriculum vitae.
 - [English](#english)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Variables](#variables)
   - [Docker](#docker)
+  - [Variables](#variables)
 - [Italiano](#italiano)
   - [Installazione](#installazione)
   - [Uso](#uso)
-  - [Variabili](#variabili)
   - [Docker](#docker-1)
+  - [Variabili](#variabili)
 
 ## English
 
@@ -38,6 +38,29 @@ In the following example all variables have been set within the `cv.yaml` file a
 
 ```bash
 pandoc cv.yaml --template pancv -o cv.pdf
+```
+
+### Docker
+
+This template can also be used through a [docker](https://www.docker.com/) container.
+
+The first operation to do is to retrieve the [`norangebit/pandocker`](https://git.norangeb.it/norangebit/pandocker) image through the following command:
+
+```bash
+docker pull norangebit/pandocker
+```
+
+after which you can run the container with the command:
+
+```bash
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker <cmd>
+```
+
+where instead of `<cmd>` the desired pandoc command must be inserted.
+For example, you can get the same result as the [previous example](#usage) through the command:
+
+```
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
 ```
 
 ### Variables
@@ -67,29 +90,6 @@ pandoc cv.yaml --template pancv -o cv.pdf
     - `left` (*string*) left part of the section.
     - `right` (*string*) right part of the section.
 
-### Docker
-
-This template can also be used through a [docker](https://www.docker.com/) container.
-
-The first operation to do is to retrieve the [`norangebit/pandocker`](https://git.norangeb.it/norangebit/pandocker) image through the following command:
-
-```bash
-docker pull norangebit/pandocker
-```
-
-after which you can run the container with the command:
-
-```bash
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker <cmd>
-```
-
-where instead of `<cmd>` the desired pandoc command must be inserted.
-For example, you can get the same result as the [previous example](#usage) through the command:
-
-```
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
-```
-
 ## Italiano
 
 **Pancv** è un template per [pandoc](https://pandoc.org/) per la realizzazione di *curriculum vitae*.
@@ -115,6 +115,29 @@ Nel seguente esempio tutte le variabili sono state settate all'interno del file 
 
 ```bash
 pandoc cv.yaml --template pancv -o cv.pdf
+```
+
+### Docker
+
+Questo template può essere utilizzato anche a traverso un container [docker](https://www.docker.com/).
+
+La prima operazione da fare è recuperare l'immagine [`norangebit/pandocker`](https://git.norangeb.it/norangebit/pandocker) attraverso il seguente comando:
+
+```bash
+docker pull norangebit/pandocker
+```
+
+dopo di che è possibile eseguire il container con il comando:
+
+```bash
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker <cmd>
+```
+
+dove al posto di `<cmd>` va inserito il comando pandoc desiderato.
+Per esempio si può ottenere lo stesso risultato dell'[esempio precedente](#uso) attraverso il comando:
+
+```
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
 ```
 
 ### Variabili
@@ -143,27 +166,3 @@ pandoc cv.yaml --template pancv -o cv.pdf
   - `items` (*list*) elementi della sezione.
     - `left` (*string*) parte di sinistra della sezione.
     - `right` (*string*) parte di destra della sezione.
-
-### Docker
-
-Questo template può essere utilizzato anche a traverso un container [docker](https://www.docker.com/).
-
-La prima operazione da fare è recuperare l'immagine [`norangebit/pandocker`](https://git.norangeb.it/norangebit/pandocker) attraverso il seguente comando:
-
-```bash
-docker pull norangebit/pandocker
-```
-
-dopo di che è possibile eseguire il container con il comando:
-
-```bash
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker <cmd>
-```
-
-dove al posto di `<cmd>` va inserito il comando pandoc desiderato.
-Per esempio si può ottenere lo stesso risultato dell'[esempio precedente](#uso) attraverso il comando:
-
-```
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
-```
-
