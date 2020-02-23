@@ -4,7 +4,7 @@ A pandoc LaTeX template for creating a curriculum vitae.
 
 - [English](#english)
   - [Installation](#installation)
-  - [Usege](#usege)
+  - [Usage](#usage)
   - [Variables](#variables)
 - [Italiano](#italiano)
   - [Installazione](#installazione)
@@ -13,17 +13,57 @@ A pandoc LaTeX template for creating a curriculum vitae.
 
 ## English
 
+**Pancv** is a template for [pandoc](https://pandoc.org/) for the realization of curriculum vitae.
+
+*Pancv* uses packages [moderncv](https://launchpad.net/moderncv) and [europasscv](https://github.com/gmazzamuto/europasscv).
+
+***Warning***: Europass support is still experimental.
+
 ### Installation
 
-*To-Do*
+- Install pandoc and a LaTeX distribution.
+- Download the latest version of this template from the [release page](https://git.norangeb.it/norangebit/pancv/releases).
+- Move the template `pancv.tex` to your pandoc templates folder and rename the file to `pancv.latex`. The location of the templates folder depends on your operating system.
+  - Unix, Linux, macOS: `~/.pandoc/templates/`
+  - Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc\templates`
+  - Windows Vista or later: `C:\Users\USERNAME\AppData\Roaming\pandoc\templates`
 
 ### Usage
 
-*To-Do*
+Once all the necessary material is installed and configured you can use `pancv` through the `--template` flag.
+
+In the following example all variables have been set within the `cv.yaml` file and `cv.pdf` has been chosen as the output file.
+
+```bash
+pandoc cv.yaml --template pancv -o cv.pdf
+```
 
 ### Variables
 
-*To-Do*
+- `europass` (*boolean*) equal to `true` if you want a curriculum in *europass* format
+- `name`
+  - `first` (*string*) name.
+  - `family` (*string*) surname.
+- `address`
+  - `first` (*string*) address.
+  - `second` (*string*) [optional] address.
+- `email` (*string*) email address.
+- `mobile` (*string*) mobile phone number.
+- `phone` (*string*) phone number.
+- `cron-sections` (*list*) chronological sections.
+  - `section` (*string*) section name.
+  - `entries` (*list*) elements of the section.
+    - `year` (*string*) duration.
+    - `degree` (*string*) 
+    - `institution` (*string*)
+    - `city` (*string*) [optional].
+    - `grade` (*string*) [optional].
+    - `description` (*string*) [optional].
+- `sections` (*list*) sections.
+  - `section` (*string*) section name.
+  - `items` (*list*) elements of the section.
+    - `left` (*string*) left part of the section.
+    - `right` (*string*) right part of the section.
 
 ## Italiano
 
@@ -31,10 +71,12 @@ A pandoc LaTeX template for creating a curriculum vitae.
 
 *Pancv* utilizza il pacchetto [moderncv](https://launchpad.net/moderncv) e il pacchetto [europasscv](https://github.com/gmazzamuto/europasscv).
 
+***Attenzione***: Il supporto al formato europass è ancora in fase sperimentale.
+
 ### Installazione
 
 - Installare pandoc e una distribuzione LaTeX.
-- Scaricare l'ultima versione di questo tema dalla pagina delle release.
+- Scaricare l'ultima versione di questo tema dalla [pagina delle release](https://git.norangeb.it/norangebit/pancv/releases).
 - Copiare il file `pancv.tex` nella cartella dei template e rinominarlo in `pancv.latex`. La cartella dei template varia a seconda del sistema operativo.
   - Unix, Linux, macOS: `~/.pandoc/templates/`
   - Windows XP: `C:\Documents And Settings\USERNAME\Application Data\pandoc\templates`
