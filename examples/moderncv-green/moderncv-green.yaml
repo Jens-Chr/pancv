@@ -1,0 +1,47 @@
+---
+name:
+  first: John
+  family: Doe
+address:
+  first: street and number
+mobile: 0123456789
+email: john.doe@domain.com
+theme:
+  color: green
+  style: classic
+cron-sections:
+  - section: Job
+    entries:
+      - year: 2018--2020
+        degree: Job Title
+        institution: Institution
+        city: City
+        grade: Grade
+  - section: Education
+    entries:
+      - year: 2015--2018
+        degree: Degree
+        institution: Institution
+        city: City
+        grade: Grade
+        description: Insert here the description
+      - year: 2010--2015
+        degree: Degree
+        institution: Institution
+        city: City
+        grade: Grade
+        description: Insert here the description
+sections:
+  - section: Languages
+    items:
+      - left: English 
+        right: Good
+  - section: Skills
+    items:
+      - left: Category 1
+        right: xxx, yyy, zzz
+      - left: Category 2
+        right: xxx, yyy, zzz
+      - left: Category 3
+        right: xxx, yyy, zzz
+---

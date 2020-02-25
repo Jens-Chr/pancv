@@ -65,7 +65,10 @@ docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandock
 
 ### Variables
 
-- `europass` (*boolean*) equal to `true` if you want a curriculum in *europass* format
+- `europass` (*boolean*) equal to `true` if you want a curriculum in *europass* format (default to false)
+- `theme` not available for the Europass style
+  - `color` blue (default), green, red, orange, grey
+  - `style` classic (default), casual
 - `name`
   - `first` (*string*) name.
   - `family` (*string*) surname.
@@ -143,6 +146,9 @@ docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandock
 ### Variabili
 
 - `europass` (*boolean*) pari a `true` se si desidera un curriculum in formato *europass*
+- `theme` non disponibile per lo stile europass
+  - `color` blue (predefinito), green, red, orange, grey
+  - `style` classic (predefinito), casual
 - `name`
   - `first` (*string*) nome.
   - `family` (*string*) cognome.
