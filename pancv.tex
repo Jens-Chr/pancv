@@ -1,85 +1,84 @@
+$if(europass)$
 \newcommand{\pancvname}[2]{
-  $if(europass)$
   \ecvname{#1 #2}
-  $else$
-  \firstname{#1}
-  \familyname{#2}
-  $endif$
 }
 
 \newcommand{\pancvphone}[1]{
-  $if(europass)$
   \ecvtelephone{#1}
-  $else$
-  \phone{#1}
-  $endif$
 }
 
 \newcommand{\pancvmobile}[1]{
-  $if(europass)$
   \ecvmobile{#1}
-  $else$
-  \mobile{#1}
-  $endif$
 }
 
 \newcommand{\pancvemail}[1]{
-  $if(europass)$
   \ecvemail{#1}
-  $else$
-  \email{#1}
-  $endif$
 }
 
 \newcommand{\pancvaddress}[2]{
-  $if(europass)$
   \ecvaddress{#1, #2}
-  $else$
-  \address{#1}{#2}
-  $endif$
 }
 
 \newcommand{\pancvsection}[1]{
-  $if(europass)$
   \ecvsection{#1}
-  $else$
-  \section{#1}
-  $endif$
 }
 
 \newcommand{\pancventry}[6]{
-  $if(europass)$
   \ecvitem{#1}{
     \textbf{#2},
     #3.
     \ifthenelse{\isempty{#4}}{}{#4}
     \ifthenelse{\isempty{#5}}{}{#5.}
     \ifthenelse{\isempty{#6}}{}{\newline #6}}
-  $else$
-  \cventry{#1}{#2}{#3}{#4}{#5}{#6}
-  $endif$
 }
 
 \newcommand{\pancvitem}[2]{
-  $if(europass)$
   \ecvitem{#1}{#2}
-  $else$
-  \cvline{#1}{#2}
-  $endif$
 }
+$else$
+\newcommand{\pancvname}[2]{
+  \firstname{#1}
+  \familyname{#2}
+}
+
+\newcommand{\pancvphone}[1]{
+  \phone{#1}
+}
+
+\newcommand{\pancvmobile}[1]{
+  \mobile{#1}
+}
+
+\newcommand{\pancvemail}[1]{
+  \email{#1}
+}
+
+\newcommand{\pancvaddress}[2]{
+  \address{#1}{#2}
+}
+
+\newcommand{\pancvsection}[1]{
+  \section{#1}
+}
+
+\newcommand{\pancventry}[6]{
+  \cventry{#1}{#2}{#3}{#4}{#5}{#6}
+}
+
+\newcommand{\pancvitem}[2]{
+  \cvline{#1}{#2}
+}
+$endif$
 
 $if(europass)$
 \documentclass{europasscv}
-$else$
-\documentclass{moderncv}
-  $if(theme)$
-  \moderncvtheme[$theme.color$]{$theme.style$}
-  $else$
-  \moderncvtheme[blue]{classic}
-  $endif$
-$endif$
 
 \usepackage{xifthen}
+
+$else$
+\documentclass{moderncv}
+\moderncvtheme[$if(theme.color)$$theme.color$$else$blue$endif$]{$if(theme.style)$$theme.style$$else$classic$endif$}
+$endif$
 
 $if(name)$
 \pancvname{$name.first$}{$name.family$}

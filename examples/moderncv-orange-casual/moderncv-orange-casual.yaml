@@ -7,7 +7,8 @@ address:
 mobile: 0123456789
 email: john.doe@domain.com
 theme:
-  color: green
+  style: casual
+  color: orange
 cron-sections:
   - section: Job
     entries:
