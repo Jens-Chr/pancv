@@ -1,5 +1,6 @@
 ---
-europass: true
+europass:
+  nototpages: true
 name:
   first: John
   family: Doe

@@ -71,7 +71,17 @@ $else$
 $endif$
 
 $if(europass)$
-\documentclass{europasscv}
+\documentclass[
+$if(europass.nologo)$
+  nologo,
+$endif$
+$if(europass.notitle)$
+  notitle,
+$endif$
+$if(europass.nototpages)$
+  nototpages,
+$endif$
+]{europasscv}
 
 \usepackage{xifthen}
 
