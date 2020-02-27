@@ -93,6 +93,11 @@ $else$
 \moderncvtheme[$if(theme.color)$$theme.color$$else$blue$endif$]{$if(theme.style)$$theme.style$$else$classic$endif$}
 $endif$
 
+\usepackage[$if(inputenc)$$inputenc$$else$utf8$endif$]{inputenc}
+\usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+
+\usepackage[$if(lang)$$lang$$else$english$endif$]{babel}
+
 $if(name)$
 \pancvname{$name.first$}{$name.family$}
 $endif$
