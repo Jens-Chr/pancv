@@ -16,7 +16,10 @@ $if(europass)$
 }
 
 \newcommand{\pancvaddress}[2]{
-  \ecvaddress{#1, #2}
+  \ecvaddress{%
+    #1%
+    \ifthenelse{\isempty{#2}{}}{}{, #2}
+  }
 }
 
 \newcommand{\pancvsection}[1]{
@@ -24,12 +27,12 @@ $if(europass)$
 }
 
 \newcommand{\pancventry}[6]{
-  \ecvitem{#1}{
+  \ecvitem{#1}{%
     \textbf{#2},
-    #3.
-    \ifthenelse{\isempty{#4}}{}{#4}
-    \ifthenelse{\isempty{#5}}{}{#5.}
-    \ifthenelse{\isempty{#6}}{}{\newline #6}}
+    #3%
+    \ifthenelse{\isempty{#4}}{.}{, #4.}%
+    \ifthenelse{\isempty{#5}}{}{ #5.}%
+    \ifthenelse{\isempty{#6}}{}{\newline #6}}%
 }
 
 \newcommand{\pancvitem}[2]{

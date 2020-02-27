@@ -19,8 +19,6 @@ A pandoc LaTeX template for creating a curriculum vitae.
 
 *Pancv* uses packages [moderncv](https://launchpad.net/moderncv) and [europasscv](https://github.com/gmazzamuto/europasscv).
 
-***Warning***: Europass support is still experimental.
-
 ### Installation
 
 - Install pandoc and a LaTeX distribution.
@@ -63,6 +61,8 @@ For example, you can get the same result as the [previous example](#usage) throu
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
 ```
 
+***Warning***: Europass is still not supported via docker.
+
 ### Variables
 
 - `europass` (*boolean*) equal to `true` if you want a curriculum in *europass* format (default to false)
@@ -98,8 +98,6 @@ docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandock
 **Pancv** è un template per [pandoc](https://pandoc.org/) per la realizzazione di *curriculum vitae*.
 
 *Pancv* utilizza il pacchetto [moderncv](https://launchpad.net/moderncv) e il pacchetto [europasscv](https://github.com/gmazzamuto/europasscv).
-
-***Attenzione***: Il supporto al formato europass è ancora in fase sperimentale.
 
 ### Installazione
 
@@ -142,6 +140,8 @@ Per esempio si può ottenere lo stesso risultato dell'[esempio precedente](#uso)
 ```
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` norangebit/pandocker pandoc cv.yaml --template pancv -o cv.pdf
 ```
+
+***Attenzione***: Europass ancora non è supportato tramite docker.
 
 ### Variabili
 
