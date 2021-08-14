@@ -98,6 +98,18 @@ $endif$
 
 \usepackage[$if(lang)$$lang$$else$english$endif$]{babel}
 
+\usepackage[scale=0.7]{geometry}
+
+%\makeatletter % <=======================================================
+%\let\oldmakecvtitle\makecvtitle % <=========== copy original makecvtitle
+%\renewcommand*{\makecvtitle}{% <======================== new makecvtitle
+%  {\centering\framebox{\includegraphics[width=\@photowidth]{\@photo}}\par\vspace{10pt}}%
+%  \oldmakecvtitle%
+%}%
+%\makeatother % <========================================================
+
+\title{Lebenslauf}
+
 $if(name)$
 \pancvname{$name.first$}{$name.family$}
 $endif$
@@ -118,7 +130,7 @@ $if(phone)$
 \pancvphone{$phone$}
 $endif$
 
-%\photo[64pt]{pic.png}
+\photo[96pt]{./images/pic.png}
 
 \begin{document}
 
