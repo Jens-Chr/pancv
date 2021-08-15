@@ -44,6 +44,10 @@ $else$
   \familyname{#2}
 }
 
+\newcommand{\pancvextrainfo}[2]{
+  \extrainfo{#1}
+}
+
 \newcommand{\pancvphone}[1]{
   \phone{#1}
 }
@@ -108,10 +112,14 @@ $endif$
 %}%
 %\makeatother % <========================================================
 
-\title{Lebenslauf}
+\title{Lebenslauf \today}
 
 $if(name)$
 \pancvname{$name.first$}{$name.family$}
+$endif$
+
+$if(extrainfo)$
+\pancvextrainfo{$extrainfo$}
 $endif$
 
 $if(address)$
