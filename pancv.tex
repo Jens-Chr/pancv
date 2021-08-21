@@ -112,7 +112,7 @@ $endif$
 %}%
 %\makeatother % <========================================================
 
-\title{Lebenslauf \today}
+\title{$title$ \today}
 
 $if(name)$
 \pancvname{$name.first$}{$name.family$}
@@ -138,7 +138,9 @@ $if(phone)$
 \pancvphone{$phone$}
 $endif$
 
-\photo[96pt]{./images/pic.png}
+$if(photo)$
+\photo[64pt]{$photo$}
+$endif$
 
 \begin{document}
 
